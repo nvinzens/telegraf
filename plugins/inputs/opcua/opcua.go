@@ -22,6 +22,7 @@ import (
 )
 
 // DO NOT REMOVE THE NEXT TWO LINES! This is required to embed the sampleConfig data.
+//
 //go:embed sample.conf
 var sampleConfig string
 
@@ -205,7 +206,7 @@ func tagsSliceToMap(tags [][]string) (map[string]string, error) {
 	return m, nil
 }
 
-//InitNodes Method on OpcUA
+// InitNodes Method on OpcUA
 func (o *OpcUA) InitNodes() error {
 	for _, node := range o.RootNodes {
 		o.nodes = append(o.nodes, Node{

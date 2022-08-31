@@ -339,5 +339,10 @@ func getPromTS(name string, labels []prompb.Label, value float64, ts time.Time) 
 		Name:  "__name__",
 		Value: name,
 	})
+
+	sort.Slice(labels, func(i, j int) bool {
+		return labels[i].Name < labels[j].Name
+	})
+
 	return MakeMetricKey(labels), prompb.TimeSeries{Labels: labels, Samples: sample}
 }
